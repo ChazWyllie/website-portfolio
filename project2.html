@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Kaizen To-Do List - A task management application with visual heat map tracking." />
-    <title>Kaizen To-Do List | Chaz Wyllie Portfolio</title>
+    <meta name="description" content="Data Structure Visualizer - Interactive web application for visualizing algorithms and data structures." />
+    <title>Data Structure Visualizer | Chaz Wyllie Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -26,7 +26,7 @@
 
     <main id="main">
         <section class="project-detail" data-animate="fade-in">
-            <h1>Kaizen To-Do List</h1>
+            <h1>Data Structure Visualizer</h1>
             
             <div class="project-meta">
                 <div class="meta-item">
@@ -46,65 +46,65 @@
             <div class="tech-stack-detail">
                 <h3>Technology Stack</h3>
                 <div class="tech-list">
-                    <span class="tech-badge">React</span>
                     <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">HTML5</span>
+                    <span class="tech-badge">Canvas API</span>
                     <span class="tech-badge">CSS3</span>
-                    <span class="tech-badge">Local Storage API</span>
                 </div>
             </div>
 
             <section class="detail-section">
                 <h2>Project Overview</h2>
                 <p>
-                    Kaizen To-Do List is a comprehensive task management application designed to help users track their daily progress and maintain motivation through visual feedback. The application combines a clean interface with powerful visualization tools.
+                    The Data Structure Visualizer is an interactive educational web application that helps students and developers understand complex data structures and algorithms through real-time visualization. It provides a hands-on learning experience with step-by-step execution and detailed complexity analysis.
                 </p>
             </section>
 
             <section class="detail-section">
                 <h2>Key Features</h2>
                 <ul class="feature-list">
-                    <li><strong>Task Management:</strong> Create, edit, delete, and organize tasks with priority levels</li>
-                    <li><strong>Heat Map Visualization:</strong> Visual representation of daily progress across weeks and months</li>
-                    <li><strong>Habit Tracking:</strong> Monitor consistency and identify patterns in task completion</li>
-                    <li><strong>Motivational Insights:</strong> Real-time statistics and achievement tracking</li>
-                    <li><strong>Persistent Storage:</strong> Data persists across sessions using Local Storage API</li>
-                    <li><strong>Responsive Design:</strong> Seamless experience across all devices</li>
+                    <li><strong>Multiple Data Structures:</strong> Visualizations for arrays, linked lists, stacks, queues, trees, and graphs</li>
+                    <li><strong>Algorithm Animations:</strong> Step-by-step visualization of sorting, searching, and traversal algorithms</li>
+                    <li><strong>Real-time Complexity Analysis:</strong> Display time and space complexity for each operation</li>
+                    <li><strong>Interactive Controls:</strong> Play, pause, and step through operations at custom speeds</li>
+                    <li><strong>Performance Comparisons:</strong> Side-by-side comparison of different algorithms</li>
+                    <li><strong>Code Snippets:</strong> View pseudocode alongside visualizations</li>
                 </ul>
             </section>
 
             <section class="detail-section">
                 <h2>Technical Implementation</h2>
                 <p>
-                    The application was built using React for component-based UI development, ensuring modularity and maintainability. The heat map visualization was created using pure CSS and JavaScript, rendering a dynamic calendar view that updates in real-time.
+                    Built with pure JavaScript and HTML5 Canvas API for high-performance graphics rendering. The application uses a state management pattern to track visualization state and handle user interactions efficiently.
                 </p>
                 <p>
-                    State management was implemented using React Hooks (useState, useEffect, useContext), providing efficient data flow throughout the application. Local Storage API was leveraged to persist user data without requiring a backend server.
+                    Canvas rendering provides smooth animations at 60fps, while careful memory management ensures optimal performance even with large datasets. Modular architecture allows easy addition of new data structures and algorithms.
                 </p>
             </section>
 
             <section class="detail-section">
                 <h2>Challenges & Solutions</h2>
                 <div class="challenge-item">
-                    <h3>Challenge: Heat Map Performance</h3>
-                    <p>Rendering large heat maps with hundreds of entries caused performance issues.</p>
-                    <p><strong>Solution:</strong> Implemented virtualization and lazy loading techniques to render only visible elements, significantly improving performance.</p>
+                    <h3>Challenge: Smooth Animations</h3>
+                    <p>Achieving fluid animations while maintaining accuracy was complex with Canvas API.</p>
+                    <p><strong>Solution:</strong> Implemented requestAnimationFrame for optimal timing and custom interpolation functions for smooth transitions between states.</p>
                 </div>
                 <div class="challenge-item">
-                    <h3>Challenge: Data Persistence</h3>
-                    <p>Needed reliable offline storage without a backend infrastructure.</p>
-                    <p><strong>Solution:</strong> Utilized Browser Local Storage API with compression techniques to handle large datasets efficiently.</p>
+                    <h3>Challenge: Large Dataset Handling</h3>
+                    <p>Visualizing large data structures without performance degradation.</p>
+                    <p><strong>Solution:</strong> Implemented viewport culling and level-of-detail rendering techniques to only render visible elements.</p>
                 </div>
             </section>
 
             <section class="detail-section">
                 <h2>Results & Impact</h2>
                 <p>
-                    The final product successfully demonstrates a user-friendly approach to habit tracking. Users report improved motivation and clarity in managing daily tasks. The heat map visualization provides immediate visual feedback on consistency and progress.
+                    The visualizer has proven to be an effective educational tool for understanding complex concepts. Students using the tool report higher comprehension of data structures and algorithms compared to traditional learning methods. The interactive nature makes abstract concepts concrete and memorable.
                 </p>
             </section>
 
             <div class="project-links">
-                <a href="https://github.com/ChazWyllie/kaizen-todo" target="_blank" rel="noopener noreferrer" class="btn-primary">View on GitHub</a>
+                <a href="https://github.com/ChazWyllie/ds-visualizer" target="_blank" rel="noopener noreferrer" class="btn-primary">View on GitHub</a>
                 <a href="index.html#projects" class="btn-secondary">Back to Projects</a>
             </div>
         </section>

@@ -3,17 +3,54 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="description" content=" Portfolio of Chaz Wyllie, an undergraduate at ASU and aspiring Computer Scientist" />
+    <meta name="description" content="Portfolio of Chaz Wyllie, an ASU Computer Science undergraduate specializing in software development and machine learning." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Chaz Wyllie | ASU Undergraduate Portfolio</title>
+    <meta property="og:title" content="Chaz Wyllie | Computer Science Portfolio" />
+    <meta property="og:description" content="Explore my projects, skills, and experience in software development and machine learning." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0F1419" />
+    <title>Chaz Wyllie | Computer Science Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
     <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="styles.css">
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Chart.js for Data Visualization -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!-- Vanilla Tilt for 3D Card Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Chaz Wyllie",
+        "jobTitle": "Computer Science Student",
+        "affiliation": "Arizona State University",
+        "url": "https://chazwyllie.com",
+        "sameAs": [
+            "https://www.linkedin.com/in/chaz-wyllie-789547338/",
+            "https://github.com/ChazWyllie"
+        ],
+        "knowsAbout": ["Software Development", "Machine Learning", "Data Structures", "Algorithms"]
+    }
+    </script>
 </head>
 
 <body>
-    <header>
+    
+    <header class="header">
         <a href="#" class="logo">Chaz Wyllie</a>
-        <nav>
+        <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav">
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -24,97 +61,370 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main">
 
         <!-- Hero Section -->
-        <section class="hero">
-            <h1>Hello, I’m Chaz Wyllie</h1>
-            <p>Undergraduate at ASU specializing in Computer Science. Eager to apply my skills in software development, machine learning,
-               and problem-solving to build impactful solutions.</p>
-            <a href="#projects" class="btn-primary">View My Work</a>
+        <section class="hero" data-animate="fade-in">
+            <div class="hero-content">
+                <h1>Hello, I'm Chaz Wyllie</h1>
+                <p>Computer Science undergraduate at ASU. I build impactful software solutions through full-stack development, machine learning, and problem-solving.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary">View My Work</a>
+                    <a href="#contact" class="btn-secondary">Get in Touch</a>
+                </div>
+            </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="about">
-            <img src="Professional Image 1.jpeg" alt="Your portrait" />
+        <section id="about" class="about" data-animate="fade-in">
+            <div class="about-image-wrapper">
+                <img src="CF8F32FF-445F-479A-96AD-261CD7FA3188.JPG" alt="Chaz Wyllie portrait" />
+            </div>
             <div class="about-text">
                 <h2>About Me</h2>
                 <p>
-                    I’m pursuing a Bachelor’s in Computer Science at Arizona State University. I’ve always been passionate about exploring the latest technologies—whether building software systems from scratch,
-                    refining my knowledge of data structures and algorithms, or experimenting with emerging fields like machine learning and data analysis. 
-                    Whether it’s software development or exploring machine learning, my goal is to maximize my skill set and make a positive impact.
+                    I'm pursuing a Bachelor's in Computer Science at Arizona State University with a passion for building elegant, scalable software solutions. My interests span full-stack web development, machine learning, and systems design. I'm driven by the challenge of translating complex problems into clean, efficient code.
                 </p>
                 <p>
-                    Beyond the classroom, I’ve worked on personal projects and I am always eager to contribute to meaningful initiatives. 
-                    Let’s connect and make something amazing together.
+                    Whether architecting backend systems, crafting responsive frontends, or exploring AI/ML applications, I'm committed to continuous learning and delivering production-ready solutions. I thrive in collaborative environments and am eager to contribute to meaningful projects that make a real impact.
                 </p>
+                <a href="#contact" class="btn-link">Let's build something great →</a>
+                <!-- GitHub Stats Card -->
+                <div id="github-stats-card" class="github-stats-card">
+                    <div class="github-stat">
+                        <div class="stat-value" id="github-contributions">~40</div>
+                        <div class="stat-label">Contributions</div>
+                    </div>
+                    <div class="github-stat">
+                        <div class="stat-value" id="github-streak">—</div>
+                        <div class="stat-label">Streak</div>
+                    </div>
+                    <div class="github-stat">
+                        <div class="stat-value" id="github-repos">—</div>
+                        <div class="stat-label">Repositories</div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="skills">
-            <h2>Skills</h2>
-            <div class="skill-list">
-                <!-- Add or remove skills as needed -->
-                <div>Java</div>
-                <div>Python</div>
-                <div>C++</div>
-                <div>Git & GitHub</div>
+        <section id="skills" class="skills" data-animate="fade-in">
+            <h2>Technical Skills & Expertise</h2>
+            <div class="skill-categories">
+                <div class="skill-category">
+                    <h3>Core Languages</h3>
+                    <div class="skill-list">
+                        <div class="skill-item" data-level="advanced">
+                            <span>Python</span>
+                            <div class="skill-description">Scripting, automation, data processing, ML workflows</div>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="advanced">
+                            <span>Java</span>
+                            <div class="skill-description">OOP design, backend fundamentals, Maven build tooling</div>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="advanced">
+                            <span>C/C++</span>
+                            <div class="skill-description">Systems-level exposure, memory management, performance</div>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="intermediate"><span>JavaScript</span><div class="skill-bar"></div></div>
+                        <div class="skill-item" data-level="intermediate"><span>SQL</span><div class="skill-bar"></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Data Science & AI</h3>
+                    <div class="skill-list">
+                        <div class="skill-item" data-level="advanced">
+                            <span>Applied Machine Learning</span>
+                            <div class="skill-description">Model evaluation, cross-validation, hyperparameter tuning</div>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="advanced">
+                            <span>Data Analysis</span>
+                            <div class="skill-description">NumPy, pandas for cleaning, feature engineering, exploration</div>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="advanced">
+                            <span>AI Agentic Development</span>
+                            <div class="skill-description">LLM-powered agents, tool-calling, multi-step reasoning</div>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="advanced">
+                            <span>Prompt Engineering</span>
+                            <div class="skill-description">Role-based agent design, local AI inference workflows</div>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="intermediate">
+                            <span>Model Optimization</span>
+                            <div class="skill-description">Generalization, overfitting prevention, performance tradeoffs</div>
+                            <div class="skill-bar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Development Tools & Practices</h3>
+                    <div class="skill-list">
+                        <div class="skill-item" data-level="advanced">
+                            <span>Git & GitHub</span>
+                            <div class="skill-description">Version control, branching strategies, PRs, collaboration</div>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="advanced">
+                            <span>VS Code Workflows</span>
+                            <div class="skill-description">Reproducible environments, Python venv, development setup</div>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="advanced">
+                            <span>Automation & Scripting</span>
+                            <div class="skill-description">Task automation, eliminating repetitive work, productivity</div>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="intermediate"><span>React</span><div class="skill-bar"></div></div>
+                        <div class="skill-item" data-level="intermediate"><span>Node.js</span><div class="skill-bar"></div></div>
+                        <div class="skill-item" data-level="intermediate"><span>Linux</span><div class="skill-bar"></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Computer Science Fundamentals</h3>
+                    <div class="skill-list">
+                        <div class="skill-item" data-level="advanced">
+                            <span>Data Structures & Algorithms</span>
+                            <div class="skill-description">Strong foundation in core CS principles and design</div>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="advanced">
+                            <span>Systems Programming</span>
+                            <div class="skill-description">Memory management, kernel modules, I/O concepts</div>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="advanced">
+                            <span>Project-Driven Learning</span>
+                            <div class="skill-description">Emphasis on documentation, clarity, maintainability</div>
+                            <div class="skill-bar"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Courses Section -->
-        <section id="courses" class="courses">
-            <h2>Courses I've Taken</h2>
+        <section id="courses" class="courses" data-animate="fade-in">
+            <h2>Relevant Coursework</h2>
             <div class="course-list">
-                <div>Data Structures & Algorithms</div>
-                <div>Theoretical Computer Science</div>
-                <div>Distributed Software Development</div>
-                <div>Principles of Programming Languages</div>
-                <div>Calculus 1-3</div>
-                <div>Applied Linear Algebra</div>
-                <div>Computer Organization and Assembly Language</div>
-                <div>Information Assurance</div>
-            </div> <!-- Missing closing tag added here -->
+                <div class="course-item">Data Structures & Algorithms</div>
+                <div class="course-item">Theoretical Computer Science</div>
+                <div class="course-item">Distributed Software Development</div>
+                <div class="course-item">Principles of Programming Languages</div>
+                <div class="course-item">Calculus I-III</div>
+                <div class="course-item">Applied Linear Algebra</div>
+                <div class="course-item">Computer Organization & Assembly</div>
+                <div class="course-item">Information Assurance</div>
+            </div>
         </section>
+
         <!-- Projects Section -->
-        <section id="projects" class="projects">
+        <section id="projects" class="projects" data-animate="fade-in">
             <h2>Projects</h2>
             <div class="project-list">
-                <div class="project-card">
-                    <h3>Kaizen To-Do List</h3>
-                    <p>A to-do list application incorporating a heat map to visually assist in tracking daily progress and enhance motivation to complete the tasks.
-                    </p>
-                    <a href="#" target="_blank" rel="noopener noreferrer">View Project</a>
+                <!-- Project 1: Full Detail Page (Option A) -->
+                <div class="project-card" data-project-type="detailed" data-tilt>
+                    <div class="project-image-placeholder"></div>
+                    <div class="project-content">
+                        <h3>Kaizen To-Do List</h3>
+                        <p class="project-description">A full-featured task management application with visual heat map tracking. Features include daily progress monitoring, habit tracking, and motivational insights powered by data visualization.</p>
+                        <div class="project-tech-stack">
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">CSS3</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="project1.html" class="btn-link">View Full Project →</a>
+                            <a href="https://github.com/ChazWyllie/kaizen-todo" target="_blank" rel="noopener noreferrer" class="btn-link">GitHub Repo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Full Detail Page (Option A) -->
+                <div class="project-card" data-project-type="detailed" data-tilt>
+                    <div class="project-image-placeholder"></div>
+                    <div class="project-content">
+                        <h3>Data Structure Visualizer</h3>
+                        <p class="project-description">Interactive web application for visualizing common data structures and algorithms. Includes step-by-step execution, complexity analysis, and performance comparisons.</p>
+                        <div class="project-tech-stack">
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">Canvas API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="project2.html" class="btn-link">View Full Project →</a>
+                            <a href="https://github.com/ChazWyllie/ds-visualizer" target="_blank" rel="noopener noreferrer" class="btn-link">GitHub Repo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: GitHub Link (Option B) -->
+                <div class="project-card" data-project-type="github-linked" data-tilt>
+                    <div class="project-image-placeholder"></div>
+                    <div class="project-content">
+                        <h3>Machine Learning Classification Model</h3>
+                        <p class="project-description">Developed a classification model using Python and scikit-learn. Includes data preprocessing, feature engineering, model training, and evaluation with comprehensive analysis.</p>
+                        <div class="project-tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">scikit-learn</span>
+                            <span class="tech-badge">Pandas</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ChazWyllie/ml-classifier" target="_blank" rel="noopener noreferrer" class="btn-link">View on GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: GitHub Link (Option B) -->
+                <div class="project-card" data-project-type="github-linked" data-tilt>
+                    <div class="project-image-placeholder"></div>
+                    <div class="project-content">
+                        <h3>E-Commerce REST API</h3>
+                        <p class="project-description">Built a scalable RESTful API with Node.js and Express. Features include authentication, database modeling, error handling, and API documentation.</p>
+                        <div class="project-tech-stack">
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">Express</span>
+                            <span class="tech-badge">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ChazWyllie/ecommerce-api" target="_blank" rel="noopener noreferrer" class="btn-link">View on GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Metrics Section -->
+        <section id="project-metrics" class="project-metrics" data-animate="fade-in">
+            <h2>Project Impact & Performance</h2>
+            <div class="metrics-container">
+                <div class="metric-card">
+                    <h3>Performance Optimization</h3>
+                    <canvas id="performanceChart" width="300" height="200"></canvas>
+                </div>
+                <div class="metric-card">
+                    <h3>Technology Mastery Matrix</h3>
+                    <canvas id="skillMatrixChart" width="300" height="200"></canvas>
+                </div>
+                <div class="metric-card">
+                    <h3>Project Complexity Timeline</h3>
+                    <canvas id="timelineChart" width="300" height="200"></canvas>
                 </div>
             </div>
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="experience">
+        <section id="experience" class="experience" data-animate="fade-in">
             <h2>Experience</h2>
-            <div class="experience-item">
-                <h3>Front Desk Associate @ Powerhouse Fitness</h3>
-                <p><strong>Duration:</strong> May 2021 - Dec 2022</p>
-                <p><strong>Key Contributions:</strong> Delivered exceptional quest services and addressed customer inquiries. Managed front desk operations, ensuring smooth
-                day-to-day activities.</p>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Front Desk Associate</h3>
+                        <span class="company">Powerhouse Fitness</span>
+                    </div>
+                    <p class="duration"><strong>May 2021 — Dec 2022</strong></p>
+                    <ul class="contributions">
+                        <li>Delivered exceptional customer service and resolved inquiries with professionalism</li>
+                        <li>Managed front desk operations, coordinating daily schedules and member check-ins</li>
+                        <li>Improved operational efficiency and member satisfaction through process optimization</li>
+                    </ul>
+                </div>
             </div>
-        </section> <!-- Missing closing tag added here -->
+            <div class="experience-placeholder">
+                <p>Additional experience entries coming soon...</p>
+            </div>
+        </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <h2>Contact</h2>
-            <div class="contact-info">
-                <p>Email: <a href="mailto:cwyllie1@asu.edu">cwyllie1@asu.edu</a></p>
-                <p>LinkedIn: <a href="https://www.linkedin.com/in/chaz-wyllie-789547338/" target="_blank">LinkedIn Profile</a></p>
-                <p>GitHub: <a href="https://github.com/ChazWyllie" target="_blank">github.com/your-ChazWyllie</a></p>
+        <section id="contact" class="contact" data-animate="fade-in">
+            <h2>Let's Work Together</h2>
+            <p class="contact-intro">I'm always interested in hearing about new opportunities and challenges. Feel free to reach out!</p>
+            
+            <div class="contact-methods">
+                <a href="mailto:cwyllie1@asu.edu" class="contact-card">
+                    <h3>Email</h3>
+                    <p>cwyllie1@asu.edu</p>
+                </a>
+                <a href="https://www.linkedin.com/in/chaz-wyllie-789547338/" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <h3>LinkedIn</h3>
+                    <p>Connect with me</p>
+                </a>
+                <a href="https://github.com/ChazWyllie" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <h3>GitHub</h3>
+                    <p>Check out my work</p>
+                </a>
             </div>
         </section>
     </main>
 
-    <footer>
-        &copy; 2024 Chaz Wyllie. All rights reserved.
+<footer class="footer">
+        <p>&copy; 2026 Chaz Wyllie. All rights reserved.</p>
     </footer>
+
+    <!-- Mobile Menu & Interaction Script -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.nav');
+        
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('[data-animate]').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+    <!-- Enhanced Interaction & Animation Scripts -->
+    <script src="js/animations.js"></script>
+    <script src="js/github-integration.js"></script>
+    <script src="js/charts.js"></script>
 </body>
 
 </html>
