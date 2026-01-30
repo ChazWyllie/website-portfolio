@@ -178,14 +178,8 @@
         
         .landing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
             gap: var(--space-lg);
-        }
-        
-        @media (max-width: 480px) {
-            .landing-grid {
-                grid-template-columns: 1fr;
-            }
         }
         
         .landing-card {
@@ -562,6 +556,13 @@
            RESPONSIVE
            ============================================ */
         
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .showcase-main {
+                padding: var(--space-xl) var(--space-lg);
+            }
+        }
+        
         @media (max-width: 768px) {
             .showcase-header {
                 padding: var(--space-md);
@@ -571,10 +572,42 @@
             
             .showcase-main {
                 padding: var(--space-lg) var(--space-md);
+                padding-left: max(var(--space-md), env(safe-area-inset-left));
+                padding-right: max(var(--space-md), env(safe-area-inset-right));
             }
             
             .landing-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .back-link {
+                min-height: 44px;
+                padding: var(--space-sm) var(--space-md);
+            }
+        }
+        
+        /* Small mobile */
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.75rem;
+            }
+            
+            .page-description {
+                font-size: 1rem;
+            }
+            
+            .logo {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .brand-name {
+                font-size: 1rem;
+            }
+            
+            .showcase-footer {
+                padding-bottom: max(var(--space-xl), env(safe-area-inset-bottom));
             }
         }
     </style>

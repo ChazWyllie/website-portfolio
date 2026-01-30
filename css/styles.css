@@ -95,6 +95,9 @@ body {
     line-height: 1.6;
     font-size: 1rem;
     overflow-x: hidden;
+    /* Safe area insets for notched devices (iPhone X+) */
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
 }
 
 a {
@@ -228,6 +231,21 @@ img {
     height: 2px;
     background-color: var(--text-primary);
     transition: var(--transition-base);
+    transform-origin: center;
+}
+
+/* Hamburger to X animation when menu is open */
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ================================================================
@@ -349,6 +367,7 @@ section {
     align-items: center;
     gap: var(--space-xs);
     padding: 0.875rem 1.75rem;
+    min-height: 44px; /* Apple's recommended touch target */
     font-size: 0.8125rem;
     font-weight: var(--font-weight-semibold);
     text-transform: uppercase;
@@ -538,7 +557,7 @@ section {
 
 .skill-categories {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: var(--space-2xl);
 }
 
@@ -736,7 +755,7 @@ section {
 
 .project-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
     gap: var(--space-lg);
 }
 
@@ -1188,6 +1207,14 @@ section {
 
     .nav a {
         font-size: 1.25rem;
+        padding: var(--space-sm) var(--space-md);
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav ul {
+        padding-bottom: env(safe-area-inset-bottom);
     }
 
     .hero {

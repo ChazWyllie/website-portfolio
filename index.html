@@ -82,10 +82,13 @@
             <div class="about-text">
                 <h2>About Me</h2>
                 <p>
-                    I'm pursuing a Bachelor's in Computer Science at Arizona State University with a passion for building elegant, scalable software solutions. My interests span full-stack development, machine learning, and systems design. I'm driven by the challenge of translating complex problems into clean, efficient code.
+                    I'm pursuing a Bachelor's in Computer Science at Arizona State University with a passion for building elegant, scalable software solutions. My interests span full-stack development, machine learning, and data analysis. I'm driven by the challenge of translating complex problems into clean, efficient code.
                 </p>
                 <p>
-                    Whether architecting backend systems, crafting responsive frontends, or exploring AI/ML applications, I'm committed to continuous learning and delivering production-ready solutions. I thrive in collaborative environments and am eager to contribute to meaningful projects that make a real impact. Outside of software, I’m disciplined about fitness and health, lifting, running, and optimizing routines, which is the
+                    Whether architecting backend systems or exploring AI/ML applications, I'm committed to continuous learning and delivering production-ready solutions. I thrive in collaborative environments and am eager to contribute to meaningful projects that make a real impact.
+                </p>
+                <p>
+                    Outside of software, I’m disciplined about fitness and health, lifting, running, and optimizing routines, which is the
                     same mindset I bring to engineering: consistency, feedback loops, and measurable progress.
                 </p>
                 <a href="#contact" class="btn-link">Let's build something great</a>
@@ -377,6 +380,7 @@
         
         menuToggle.addEventListener('click', () => {
             nav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
             menuToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
         });
 
@@ -384,6 +388,7 @@
         document.querySelectorAll('.nav a').forEach(link => {
             link.addEventListener('click', () => {
                 nav.classList.remove('active');
+                menuToggle.classList.remove('active');
                 menuToggle.setAttribute('aria-expanded', 'false');
             });
         });

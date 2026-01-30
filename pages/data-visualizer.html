@@ -453,7 +453,26 @@
            RESPONSIVE
            ================================================================ */
         
+        /* Tablet */
+        @media (max-width: 1024px) {
+            :root {
+                --space-xl: 2rem;
+                --space-2xl: 3rem;
+                --space-3xl: 4rem;
+            }
+            
+            .header {
+                padding: var(--space-md) var(--space-lg);
+            }
+        }
+        
         @media (max-width: 768px) {
+            :root {
+                --space-xl: 1.5rem;
+                --space-2xl: 2rem;
+                --space-3xl: 3rem;
+            }
+            
             .header {
                 padding: var(--space-md);
             }
@@ -462,12 +481,29 @@
                 display: none;
             }
             
+            /* Show back button prominently on mobile */
+            .logo {
+                font-size: 0.8125rem;
+                padding: var(--space-sm) var(--space-md);
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+            
             main {
                 padding: calc(80px + var(--space-2xl)) var(--space-md) var(--space-2xl);
+                padding-left: max(var(--space-md), env(safe-area-inset-left));
+                padding-right: max(var(--space-md), env(safe-area-inset-right));
             }
             
             .project-title {
                 font-size: 2rem;
+            }
+            
+            .project-meta {
+                grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr));
             }
             
             .project-links {
@@ -478,6 +514,37 @@
             .btn-secondary {
                 width: 100%;
                 justify-content: center;
+                min-height: 48px;
+            }
+        }
+        
+        /* Small mobile */
+        @media (max-width: 480px) {
+            :root {
+                --space-lg: 1.25rem;
+                --space-xl: 1.25rem;
+                --space-2xl: 1.5rem;
+            }
+            
+            .project-title {
+                font-size: 1.5rem;
+            }
+            
+            .project-intro {
+                font-size: 1rem;
+            }
+            
+            .tech-list {
+                gap: var(--space-xs);
+            }
+            
+            .tech-badge {
+                font-size: 0.625rem;
+                padding: 0.375rem 0.625rem;
+            }
+            
+            .footer {
+                padding-bottom: max(var(--space-lg), env(safe-area-inset-bottom));
             }
         }
     </style>
