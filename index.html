@@ -204,56 +204,136 @@
         <section id="courses" class="courses" data-animate="fade-in">
             <h2>Relevant Coursework</h2>
             
-            <h3 class="course-category-title">Software Engineering / Backend</h3>
-            <div class="course-list">
-                <div class="course-item">Data Structures and Algorithms</div>
-                <div class="course-item">Object-Oriented Programming and Data Structures</div>
-                <div class="course-item">Introduction to Software Engineering</div>
-                <div class="course-item">Software Analysis and Design</div>
-                <div class="course-item">Software Quality Assurance and Testing</div>
-                <div class="course-item">Distributed Software Development</div>
-                <div class="course-item">Operating Systems</div>
-                <div class="course-item">Computer Organization and Assembly Language Programming</div>
-                <div class="course-item">Principles of Programming</div>
-                <div class="course-item">Introduction to Human-Computer Interaction</div>
-                <div class="course-item">Computing Ethics</div>
+            <!-- Tag Legend -->
+            <div class="course-legend">
+                <span class="legend-item"><span class="course-tag tag-backend">Backend</span> Software Engineering / Backend</span>
+                <span class="legend-item"><span class="course-tag tag-systems">Systems</span> Systems / Low-Level</span>
+                <span class="legend-item"><span class="course-tag tag-ml">ML/Data</span> Machine Learning / Data</span>
+                <span class="legend-item"><span class="course-tag tag-security">Security</span> Security / Reliability</span>
             </div>
             
-            <h3 class="course-category-title">Systems / Low-Level</h3>
             <div class="course-list">
-                <div class="course-item">Operating Systems</div>
-                <div class="course-item">Computer Organization and Assembly Language Programming</div>
-                <div class="course-item">Digital Design Fundamentals</div>
-                <div class="course-item">Introduction to Programming Languages</div>
-                <div class="course-item">Data Structures and Algorithms</div>
-                <div class="course-item">Distributed Software Development</div>
-                <div class="course-item">Object-Oriented Programming and Data Structures</div>
-                <div class="course-item">Principles of Programming Languages</div>
-                <div class="course-item">Introduction to Theoretical Computer Science</div>
-            </div>
-            
-            <h3 class="course-category-title">Machine Learning / Data</h3>
-            <div class="course-list">
-                <div class="course-item">Foundations of Machine Learning</div>
-                <div class="course-item">Exploring Data in R and Python</div>
-                <div class="course-item">Data Structures and Algorithms</div>
-                <div class="course-item">Object-Oriented Programming and Data Structures</div>
-                <div class="course-item">Software Quality Assurance and Testing</div>
-                <div class="course-item">Distributed Software Development</div>
-                <div class="course-item">Computing Ethics</div>
-                <div class="course-item">Operating Systems</div>
-            </div>
-            
-            <h3 class="course-category-title">Security / Reliability</h3>
-            <div class="course-list">
-                <div class="course-item">Information Assurance</div>
-                <div class="course-item">Software Quality Assurance and Testing</div>
-                <div class="course-item">Distributed Software Development</div>
-                <div class="course-item">Operating Systems</div>
-                <div class="course-item">Computer Organization and Assembly Language Programming</div>
-                <div class="course-item">Data Structures and Algorithms</div>
-                <div class="course-item">Software Analysis and Design</div>
-                <div class="course-item">Computing Ethics</div>
+                <div class="course-item">
+                    <span class="course-name">Data Structures and Algorithms</span>
+                    <div class="course-tags">
+                        <span class="course-tag tag-backend">Backend</span>
+                        <span class="course-tag tag-systems">Systems</span>
+                        <span class="course-tag tag-ml">ML/Data</span>
+                        <span class="course-tag tag-security">Security</span>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <span class="course-name">Object-Oriented Programming and Data Structures</span>
+                    <div class="course-tags">
+                        <span class="course-tag tag-backend">Backend</span>
+                        <span class="course-tag tag-systems">Systems</span>
+                        <span class="course-tag tag-ml">ML/Data</span>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <span class="course-name">Operating Systems</span>
+                    <div class="course-tags">
+                        <span class="course-tag tag-backend">Backend</span>
+                        <span class="course-tag tag-systems">Systems</span>
+                        <span class="course-tag tag-ml">ML/Data</span>
+                        <span class="course-tag tag-security">Security</span>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <span class="course-name">Distributed Software Development</span>
+                    <div class="course-tags">
+                        <span class="course-tag tag-backend">Backend</span>
+                        <span class="course-tag tag-systems">Systems</span>
+                        <span class="course-tag tag-ml">ML/Data</span>
+                        <span class="course-tag tag-security">Security</span>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <span class="course-name">Computer Organization and Assembly Language Programming</span>
+                    <div class="course-tags">
+                        <span class="course-tag tag-backend">Backend</span>
+                        <span class="course-tag tag-systems">Systems</span>
+                        <span class="course-tag tag-security">Security</span>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <span class="course-name">Software Quality Assurance and Testing</span>
+                    <div class="course-tags">
+                        <span class="course-tag tag-backend">Backend</span>
+                        <span class="course-tag tag-ml">ML/Data</span>
+                        <span class="course-tag tag-security">Security</span>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <span class="course-name">Software Analysis and Design</span>
+                    <div class="course-tags">
+                        <span class="course-tag tag-backend">Backend</span>
+                        <span class="course-tag tag-security">Security</span>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <span class="course-name">Computing Ethics</span>
+                    <div class="course-tags">
+                        <span class="course-tag tag-backend">Backend</span>
+                        <span class="course-tag tag-ml">ML/Data</span>
+                        <span class="course-tag tag-security">Security</span>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <span class="course-name">Information Assurance</span>
+                    <div class="course-tags">
+                        <span class="course-tag tag-security">Security</span>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <span class="course-name">Foundations of Machine Learning</span>
+                    <div class="course-tags">
+                        <span class="course-tag tag-ml">ML/Data</span>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <span class="course-name">Exploring Data in R and Python</span>
+                    <div class="course-tags">
+                        <span class="course-tag tag-ml">ML/Data</span>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <span class="course-name">Introduction to Software Engineering</span>
+                    <div class="course-tags">
+                        <span class="course-tag tag-backend">Backend</span>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <span class="course-name">Principles of Programming Languages</span>
+                    <div class="course-tags">
+                        <span class="course-tag tag-backend">Backend</span>
+                        <span class="course-tag tag-systems">Systems</span>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <span class="course-name">Introduction to Theoretical Computer Science</span>
+                    <div class="course-tags">
+                        <span class="course-tag tag-systems">Systems</span>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <span class="course-name">Digital Design Fundamentals</span>
+                    <div class="course-tags">
+                        <span class="course-tag tag-systems">Systems</span>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <span class="course-name">Introduction to Programming Languages</span>
+                    <div class="course-tags">
+                        <span class="course-tag tag-systems">Systems</span>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <span class="course-name">Introduction to Human-Computer Interaction</span>
+                    <div class="course-tags">
+                        <span class="course-tag tag-backend">Backend</span>
+                    </div>
+                </div>
             </div>
         </section>
 
