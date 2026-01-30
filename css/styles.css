@@ -691,10 +691,31 @@ section {
     margin-top: var(--space-md);
 }
 
+.course-category-title {
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid var(--border);
+}
+
+.course-category-title:first-of-type {
+    margin-top: 0;
+}
+
 .course-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.course-list:last-of-type {
+    margin-bottom: 0;
 }
 
 .course-item {
