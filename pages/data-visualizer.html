@@ -5,11 +5,482 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Data Structure Visualizer - Interactive web application for visualizing algorithms and data structures." />
+    <meta name="theme-color" content="#050505" />
     <title>Data Structure Visualizer | Chaz Wyllie Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        /* ================================================================
+           DARK PREMIUM THEME - PROJECT DETAIL PAGE
+           ================================================================ */
+        
+        :root {
+            --bg-primary: #050505;
+            --bg-secondary: #0a0a0a;
+            --bg-card: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #999999;
+            --text-muted: #555555;
+            --accent: #dc2626;
+            --accent-light: #ef4444;
+            --border: #1a1a1a;
+            --border-light: #222222;
+            
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-family-mono: 'JetBrains Mono', monospace;
+            
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        ::selection {
+            background: var(--accent);
+            color: var(--text-primary);
+        }
+        
+        /* ================================================================
+           HEADER
+           ================================================================ */
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-md) var(--space-xl);
+            height: 80px;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .logo {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color var(--transition-fast);
+        }
+        
+        .logo:hover {
+            color: var(--accent);
+        }
+        
+        .nav ul {
+            display: flex;
+            list-style: none;
+            gap: var(--space-xl);
+        }
+        
+        .nav a {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            padding: var(--space-xs) 0;
+            transition: color var(--transition-fast);
+        }
+        
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width var(--transition-base);
+        }
+        
+        .nav a:hover {
+            color: var(--text-primary);
+        }
+        
+        .nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* ================================================================
+           MAIN CONTENT
+           ================================================================ */
+        
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: calc(80px + var(--space-3xl)) var(--space-xl) var(--space-3xl);
+        }
+        
+        /* ================================================================
+           PROJECT HEADER
+           ================================================================ */
+        
+        .project-eyebrow {
+            display: inline-block;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: var(--space-md);
+        }
+        
+        .project-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .project-intro {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 700px;
+            margin-bottom: var(--space-2xl);
+        }
+        
+        /* ================================================================
+           PROJECT META
+           ================================================================ */
+        
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-lg);
+            padding: var(--space-lg);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            margin-bottom: var(--space-3xl);
+        }
+        
+        .meta-item h3 {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .meta-item p {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        /* ================================================================
+           TECH STACK
+           ================================================================ */
+        
+        .tech-stack {
+            margin-bottom: var(--space-3xl);
+        }
+        
+        .tech-stack h3 {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: var(--space-md);
+        }
+        
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            font-family: var(--font-family-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            background: transparent;
+            border: 1px solid var(--border);
+            transition: all var(--transition-fast);
+        }
+        
+        .tech-badge:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        
+        /* ================================================================
+           CONTENT SECTIONS
+           ================================================================ */
+        
+        .content-section {
+            margin-bottom: var(--space-3xl);
+            padding-bottom: var(--space-2xl);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .content-section:last-of-type {
+            border-bottom: none;
+        }
+        
+        .content-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .content-section h2::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+            margin-top: var(--space-sm);
+        }
+        
+        .content-section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-md);
+        }
+        
+        /* ================================================================
+           FEATURE LIST
+           ================================================================ */
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-list li {
+            padding: var(--space-md);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            margin-bottom: var(--space-sm);
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+        }
+        
+        .feature-list li:hover {
+            border-color: var(--border-light);
+            border-left-color: var(--accent);
+            transform: translateX(4px);
+        }
+        
+        .feature-list li strong {
+            color: var(--text-primary);
+        }
+        
+        /* ================================================================
+           CHALLENGE CARDS
+           ================================================================ */
+        
+        .challenge-item {
+            background: var(--bg-card);
+            padding: var(--space-lg);
+            border: 1px solid var(--border);
+            margin-bottom: var(--space-lg);
+            position: relative;
+        }
+        
+        .challenge-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform var(--transition-base);
+        }
+        
+        .challenge-item:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .challenge-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .challenge-item p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .challenge-item p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .challenge-item strong {
+            color: var(--accent);
+        }
+        
+        /* ================================================================
+           BUTTONS
+           ================================================================ */
+        
+        .project-links {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-2xl);
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary,
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: 0.875rem 1.75rem;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            transition: all var(--transition-base);
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--text-primary);
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-light);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
+        /* ================================================================
+           FOOTER
+           ================================================================ */
+        
+        .footer {
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border);
+            padding: var(--space-lg) var(--space-xl);
+            text-align: center;
+        }
+        
+        .footer p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* ================================================================
+           ANIMATIONS
+           ================================================================ */
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .delay-2 { animation-delay: 0.2s; opacity: 0; }
+        .delay-3 { animation-delay: 0.3s; opacity: 0; }
+        .delay-4 { animation-delay: 0.4s; opacity: 0; }
+        
+        /* ================================================================
+           RESPONSIVE
+           ================================================================ */
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: var(--space-md);
+            }
+            
+            .nav {
+                display: none;
+            }
+            
+            main {
+                padding: calc(80px + var(--space-2xl)) var(--space-md) var(--space-2xl);
+            }
+            
+            .project-title {
+                font-size: 2rem;
+            }
+            
+            .project-links {
+                flex-direction: column;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -24,233 +495,97 @@
         </nav>
     </header>
 
-    <main id="main">
-        <section class="project-detail" data-animate="fade-in">
-            <h1>Data Structure Visualizer</h1>
-            
-            <div class="project-meta">
-                <div class="meta-item">
-                    <h3>Timeline</h3>
-                    <p>Completed in 2024</p>
-                </div>
-                <div class="meta-item">
-                    <h3>Role</h3>
-                    <p>Full Stack Developer</p>
-                </div>
-                <div class="meta-item">
-                    <h3>Status</h3>
-                    <p>Complete</p>
-                </div>
+    <main>
+        <span class="project-eyebrow animate-in">Featured Project</span>
+        <h1 class="project-title animate-in delay-1">Data Structure Visualizer</h1>
+        <p class="project-intro animate-in delay-2">
+            An interactive educational web application that helps students and developers understand complex data structures and algorithms through real-time visualization.
+        </p>
+
+        <div class="project-meta animate-in delay-3">
+            <div class="meta-item">
+                <h3>Timeline</h3>
+                <p>2024</p>
             </div>
-
-            <div class="tech-stack-detail">
-                <h3>Technology Stack</h3>
-                <div class="tech-list">
-                    <span class="tech-badge">JavaScript</span>
-                    <span class="tech-badge">HTML5</span>
-                    <span class="tech-badge">Canvas API</span>
-                    <span class="tech-badge">CSS3</span>
-                </div>
+            <div class="meta-item">
+                <h3>Role</h3>
+                <p>Full Stack Developer</p>
             </div>
+            <div class="meta-item">
+                <h3>Status</h3>
+                <p>Complete</p>
+            </div>
+        </div>
 
-            <section class="detail-section">
-                <h2>Project Overview</h2>
-                <p>
-                    The Data Structure Visualizer is an interactive educational web application that helps students and developers understand complex data structures and algorithms through real-time visualization. It provides a hands-on learning experience with step-by-step execution and detailed complexity analysis.
-                </p>
-            </section>
+        <div class="tech-stack animate-in delay-4">
+            <h3>Technology Stack</h3>
+            <div class="tech-list">
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">Canvas API</span>
+                <span class="tech-badge">CSS3</span>
+            </div>
+        </div>
 
-            <section class="detail-section">
-                <h2>Key Features</h2>
-                <ul class="feature-list">
-                    <li><strong>Multiple Data Structures:</strong> Visualizations for arrays, linked lists, stacks, queues, trees, and graphs</li>
-                    <li><strong>Algorithm Animations:</strong> Step-by-step visualization of sorting, searching, and traversal algorithms</li>
-                    <li><strong>Real-time Complexity Analysis:</strong> Display time and space complexity for each operation</li>
-                    <li><strong>Interactive Controls:</strong> Play, pause, and step through operations at custom speeds</li>
-                    <li><strong>Performance Comparisons:</strong> Side-by-side comparison of different algorithms</li>
-                    <li><strong>Code Snippets:</strong> View pseudocode alongside visualizations</li>
-                </ul>
-            </section>
+        <section class="content-section">
+            <h2>Project Overview</h2>
+            <p>
+                The Data Structure Visualizer is an interactive educational web application that helps students and developers understand complex data structures and algorithms through real-time visualization. It provides a hands-on learning experience with step-by-step execution and detailed complexity analysis.
+            </p>
+        </section>
 
-            <section class="detail-section">
-                <h2>Technical Implementation</h2>
-                <p>
-                    Built with pure JavaScript and HTML5 Canvas API for high-performance graphics rendering. The application uses a state management pattern to track visualization state and handle user interactions efficiently.
-                </p>
-                <p>
-                    Canvas rendering provides smooth animations at 60fps, while careful memory management ensures optimal performance even with large datasets. Modular architecture allows easy addition of new data structures and algorithms.
-                </p>
-            </section>
+        <section class="content-section">
+            <h2>Key Features</h2>
+            <ul class="feature-list">
+                <li><strong>Multiple Data Structures:</strong> Visualizations for arrays, linked lists, stacks, queues, trees, and graphs</li>
+                <li><strong>Algorithm Animations:</strong> Step-by-step visualization of sorting, searching, and traversal algorithms</li>
+                <li><strong>Real-time Complexity Analysis:</strong> Display time and space complexity for each operation</li>
+                <li><strong>Interactive Controls:</strong> Play, pause, and step through operations at custom speeds</li>
+                <li><strong>Performance Comparisons:</strong> Side-by-side comparison of different algorithms</li>
+                <li><strong>Code Snippets:</strong> View pseudocode alongside visualizations</li>
+            </ul>
+        </section>
 
-            <section class="detail-section">
-                <h2>Challenges & Solutions</h2>
-                <div class="challenge-item">
-                    <h3>Challenge: Smooth Animations</h3>
-                    <p>Achieving fluid animations while maintaining accuracy was complex with Canvas API.</p>
-                    <p><strong>Solution:</strong> Implemented requestAnimationFrame for optimal timing and custom interpolation functions for smooth transitions between states.</p>
-                </div>
-                <div class="challenge-item">
-                    <h3>Challenge: Large Dataset Handling</h3>
-                    <p>Visualizing large data structures without performance degradation.</p>
-                    <p><strong>Solution:</strong> Implemented viewport culling and level-of-detail rendering techniques to only render visible elements.</p>
-                </div>
-            </section>
+        <section class="content-section">
+            <h2>Technical Implementation</h2>
+            <p>
+                Built with pure JavaScript and HTML5 Canvas API for high-performance graphics rendering. The application uses a state management pattern to track visualization state and handle user interactions efficiently.
+            </p>
+            <p>
+                Canvas rendering provides smooth animations at 60fps, while careful memory management ensures optimal performance even with large datasets. Modular architecture allows easy addition of new data structures and algorithms.
+            </p>
+        </section>
 
-            <section class="detail-section">
-                <h2>Results & Impact</h2>
-                <p>
-                    The visualizer has proven to be an effective educational tool for understanding complex concepts. Students using the tool report higher comprehension of data structures and algorithms compared to traditional learning methods. The interactive nature makes abstract concepts concrete and memorable.
-                </p>
-            </section>
-
-            <div class="project-links">
-                <a href="https://github.com/ChazWyllie/ds-visualizer" target="_blank" rel="noopener noreferrer" class="btn-primary">View on GitHub</a>
-                <a href="../index.html#projects" class="btn-secondary">Back to Projects</a>
+        <section class="content-section">
+            <h2>Challenges & Solutions</h2>
+            <div class="challenge-item">
+                <h3>Challenge: Smooth Animations</h3>
+                <p>Achieving fluid animations while maintaining accuracy was complex with Canvas API.</p>
+                <p><strong>Solution:</strong> Implemented requestAnimationFrame for optimal timing and custom interpolation functions for smooth transitions between states.</p>
+            </div>
+            <div class="challenge-item">
+                <h3>Challenge: Large Dataset Handling</h3>
+                <p>Visualizing large data structures without performance degradation.</p>
+                <p><strong>Solution:</strong> Implemented viewport culling and level-of-detail rendering techniques to only render visible elements.</p>
             </div>
         </section>
+
+        <section class="content-section">
+            <h2>Results & Impact</h2>
+            <p>
+                The visualizer has proven to be an effective educational tool for understanding complex concepts. Students using the tool report higher comprehension of data structures and algorithms compared to traditional learning methods. The interactive nature makes abstract concepts concrete and memorable.
+            </p>
+        </section>
+
+        <div class="project-links">
+            <a href="https://github.com/ChazWyllie/ds-visualizer" target="_blank" rel="noopener noreferrer" class="btn-primary">View on GitHub</a>
+            <a href="../index.html#projects" class="btn-secondary">Back to Projects</a>
+        </div>
     </main>
 
     <footer class="footer">
         <p>&copy; 2026 Chaz Wyllie. All rights reserved.</p>
     </footer>
-
-    <style>
-        .project-detail {
-            max-width: 800px;
-            margin: var(--space-2xl) auto;
-            padding: var(--space-2xl) 0;
-        }
-
-        .project-detail h1 {
-            font-size: 3rem;
-            margin-bottom: var(--space-lg);
-            font-weight: var(--font-weight-bold);
-        }
-
-        .project-meta {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: var(--space-lg);
-            margin-bottom: var(--space-2xl);
-            padding: var(--space-lg);
-            background-color: var(--color-bg-secondary);
-            border-radius: var(--radius-lg);
-        }
-
-        .meta-item h3 {
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--color-text-secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .meta-item p {
-            font-size: 1.125rem;
-            font-weight: var(--font-weight-semibold);
-            color: var(--color-text-primary);
-        }
-
-        .tech-stack-detail {
-            margin-bottom: var(--space-2xl);
-        }
-
-        .tech-stack-detail h3 {
-            margin-bottom: var(--space-md);
-        }
-
-        .tech-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-md);
-        }
-
-        .detail-section {
-            margin-bottom: var(--space-2xl);
-            padding-bottom: var(--space-2xl);
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .detail-section h2 {
-            font-size: 1.75rem;
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--space-lg);
-        }
-
-        .detail-section p {
-            color: var(--color-text-secondary);
-            line-height: 1.8;
-            margin-bottom: var(--space-md);
-        }
-
-        .feature-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .feature-list li {
-            padding: var(--space-md);
-            background-color: var(--color-bg-secondary);
-            border-left: 4px solid var(--color-accent);
-            margin-bottom: var(--space-sm);
-            border-radius: var(--radius-md);
-            color: var(--color-text-secondary);
-        }
-
-        .challenge-item {
-            background-color: var(--color-bg-secondary);
-            padding: var(--space-lg);
-            border-radius: var(--radius-md);
-            margin-bottom: var(--space-lg);
-        }
-
-        .challenge-item h3 {
-            color: var(--color-accent);
-            margin-bottom: var(--space-sm);
-        }
-
-        .challenge-item p {
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-sm);
-        }
-
-        .project-links {
-            display: flex;
-            gap: var(--space-md);
-            margin-top: var(--space-2xl);
-            flex-wrap: wrap;
-        }
-
-        @media (max-width: 768px) {
-            .project-detail h1 {
-                font-size: 2rem;
-            }
-
-            .detail-section h2 {
-                font-size: 1.5rem;
-            }
-
-            .project-links {
-                flex-direction: column;
-            }
-
-            .project-links a {
-                width: 100%;
-                text-align: center;
-            }
-        }
-    </style>
-
-    <script>
-        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('animated');
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
-    </script>
 </body>
 
 </html>

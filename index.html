@@ -8,19 +8,17 @@
     <meta property="og:title" content="Chaz Wyllie | Computer Science Portfolio" />
     <meta property="og:description" content="Explore my projects, skills, and experience in software development and machine learning." />
     <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#0F1419" />
+    <meta name="theme-color" content="#050505" />
     <title>Chaz Wyllie | Computer Science Portfolio</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
     <!-- Link to the external CSS file -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=2">
     <!-- GSAP Animation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <!-- Chart.js for Data Visualization -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <!-- Vanilla Tilt for 3D Card Effects -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
     <!-- Structured Data -->
@@ -64,9 +62,10 @@
     <main id="main">
 
         <!-- Hero Section -->
-        <section class="hero" data-animate="fade-in">
+        <section class="hero">
             <div class="hero-content">
-                <h1>Hello, I'm Chaz Wyllie</h1>
+                <span class="hero-eyebrow">Software Developer & CS Student</span>
+                <h1>Hello, I'm <strong>Chaz Wyllie</strong></h1>
                 <p>Computer Science undergraduate at ASU. I build impactful software solutions through full-stack development, machine learning, and problem-solving.</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn-primary">View My Work</a>
@@ -83,27 +82,13 @@
             <div class="about-text">
                 <h2>About Me</h2>
                 <p>
-                    I'm pursuing a Bachelor's in Computer Science at Arizona State University with a passion for building elegant, scalable software solutions. My interests span full-stack web development, machine learning, and systems design. I'm driven by the challenge of translating complex problems into clean, efficient code.
+                    I'm pursuing a Bachelor's in Computer Science at Arizona State University with a passion for building elegant, scalable software solutions. My interests span full-stack development, machine learning, and systems design. I'm driven by the challenge of translating complex problems into clean, efficient code.
                 </p>
                 <p>
-                    Whether architecting backend systems, crafting responsive frontends, or exploring AI/ML applications, I'm committed to continuous learning and delivering production-ready solutions. I thrive in collaborative environments and am eager to contribute to meaningful projects that make a real impact.
+                    Whether architecting backend systems, crafting responsive frontends, or exploring AI/ML applications, I'm committed to continuous learning and delivering production-ready solutions. I thrive in collaborative environments and am eager to contribute to meaningful projects that make a real impact. Outside of software, I’m disciplined about fitness and health, lifting, running, and optimizing routines, which is the
+                    same mindset I bring to engineering: consistency, feedback loops, and measurable progress.
                 </p>
-                <a href="#contact" class="btn-link">Let's build something great →</a>
-                <!-- GitHub Stats Card -->
-                <div id="github-stats-card" class="github-stats-card">
-                    <div class="github-stat">
-                        <div class="stat-value" id="github-contributions">~40</div>
-                        <div class="stat-label">Contributions</div>
-                    </div>
-                    <div class="github-stat">
-                        <div class="stat-value" id="github-streak">—</div>
-                        <div class="stat-label">Streak</div>
-                    </div>
-                    <div class="github-stat">
-                        <div class="stat-value" id="github-repos">—</div>
-                        <div class="stat-label">Repositories</div>
-                    </div>
-                </div>
+                <a href="#contact" class="btn-link">Let's build something great</a>
             </div>
         </section>
 
@@ -300,24 +285,39 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Project Metrics Section -->
-        <section id="project-metrics" class="project-metrics" data-animate="fade-in">
-            <h2>Project Impact & Performance</h2>
-            <div class="metrics-container">
-                <div class="metric-card">
-                    <h3>Performance Optimization</h3>
-                    <canvas id="performanceChart" width="300" height="200"></canvas>
+                <!-- Project 5: Landing Page Showcase -->
+                <div class="project-card" data-project-type="detailed" data-tilt>
+                    <div class="project-image-placeholder" style="background: linear-gradient(135deg, #dc2626 0%, #0a0a0a 100%);"></div>
+                    <div class="project-content">
+                        <h3>Landing Page Showcase</h3>
+                        <p class="project-description">An interactive design directory featuring multiple landing page variations. Browse different styles—minimal, gradient hero, and dark premium—with preference tracking for iterative design improvements.</p>
+                        <div class="project-tech-stack">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="pages/landing-showcase.html" class="btn-link">View Showcase</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="metric-card">
-                    <h3>Technology Mastery Matrix</h3>
-                    <canvas id="skillMatrixChart" width="300" height="200"></canvas>
-                </div>
-                <div class="metric-card">
-                    <h3>Project Complexity Timeline</h3>
-                    <canvas id="timelineChart" width="300" height="200"></canvas>
+
+                <!-- Project 6: Roblox History Website -->
+                <div class="project-card" data-project-type="github-linked" data-tilt>
+                    <div class="project-image-placeholder" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);"></div>
+                    <div class="project-content">
+                        <h3>Roblox History Website</h3>
+                        <p class="project-description">A comprehensive historical archive showcasing the evolution of Roblox from 2004 to present. Features an interactive timeline, historical screenshots, and detailed documentation of platform milestones.</p>
+                        <div class="project-tech-stack">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ChazWyllie/roblox-history-website" target="_blank" rel="noopener noreferrer" class="btn-link">View on GitHub</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -423,8 +423,18 @@
 
     <!-- Enhanced Interaction & Animation Scripts -->
     <script src="js/animations.js"></script>
-    <script src="js/github-integration.js"></script>
-    <script src="js/charts.js"></script>
+
+    <!-- Header scroll effect -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 
 </html>
