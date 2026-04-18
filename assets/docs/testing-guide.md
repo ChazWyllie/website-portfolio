@@ -273,7 +273,7 @@ Checklist:
 3. Test on different browser
 4. Check for JavaScript errors in console
 
-### GitHub Stats Showing "—"
+### GitHub Stats Showing "-"
 **Problem**: GitHub integration not fetching data
 **Solution**:
 1. Check GitHub API rate limits (60 requests/hour)
