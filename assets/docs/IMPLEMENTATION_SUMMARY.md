@@ -97,7 +97,7 @@ Features implemented:
 **Data displayed**:
 ```
 Contributions: [Live count]
-Current Streak: [X days or —]
+Current Streak: [X days or -]
 Repositories: [Live count]
 ```
 

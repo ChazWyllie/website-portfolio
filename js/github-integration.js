@@ -93,10 +93,10 @@ class GitHubIntegration {
             }
             
             // Return actual count from events (this is ~90 days of activity)
-            return totalEvents > 0 ? totalEvents : '—';
+            return totalEvents > 0 ? totalEvents : '-';
         } catch (error) {
             console.error('Error calculating contributions:', error);
-            return '—';
+            return '-';
         }
     }
 
@@ -187,7 +187,7 @@ class GitHubIntegration {
 
             // Update DOM with animation
             this.animateStatUpdate(contributionsEl, contributions);
-            this.animateStatUpdate(streakEl, streak > 0 ? `${streak} days` : '—');
+            this.animateStatUpdate(streakEl, streak > 0 ? `${streak} days` : '-');
             this.animateStatUpdate(reposEl, publicRepos);
 
             console.log('✓ GitHub stats updated:', {
@@ -199,9 +199,9 @@ class GitHubIntegration {
         } catch (error) {
             console.error('Error updating stats:', error);
             // Show fallback values
-            if (contributionsEl) contributionsEl.textContent = '—';
-            if (streakEl) streakEl.textContent = '—';
-            if (reposEl) reposEl.textContent = '—';
+            if (contributionsEl) contributionsEl.textContent = '-';
+            if (streakEl) streakEl.textContent = '-';
+            if (reposEl) reposEl.textContent = '-';
         }
     }
 

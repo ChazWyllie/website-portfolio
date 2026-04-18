@@ -112,7 +112,7 @@ Edit `styles.css` media queries (lines 1380+):
 3. Verify GPU acceleration is enabled
 4. Check for JavaScript errors in console
 
-### Problem: GitHub Stats Show "—"
+### Problem: GitHub Stats Show "-"
 **Solution**:
 1. Check GitHub API rate limits (60/hour)
 2. Verify internet connection
